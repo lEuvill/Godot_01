@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyv7uk3t1lyns"]
+
+[ext_resource type="PackedScene" uid="uid://cfceutqy0ypha" path="res://Scene/main_camera.tscn" id="1_duykp"]
+[ext_resource type="PackedScene" uid="uid://1msajy2w2ovg" path="res://Scene/tile_map.tscn" id="2_tntgl"]
+[ext_resource type="PackedScene" uid="uid://bps8f4vic4xbu" path="res://Scripts/character_body_2d.tscn" id="3_4oiqj"]
+[ext_resource type="PackedScene" uid="uid://b5chlqqtk145i" path="res://Scene/settings_UI.tscn" id="3_vwkws"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(683, 504)
+
+[node name="Camera2D" parent="." instance=ExtResource("1_duykp")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Node" parent="CanvasLayer" instance=ExtResource("3_vwkws")]
+position = Vector2(1804, 65)
+
+[node name="TileMap" parent="." instance=ExtResource("2_tntgl")]
+layer_0/tile_data = PackedInt32Array(327683, 1, 0, 393213, 1, 0, 458749, 1, 0, 262142, 1, 0, 327678, 1, 0, 393214, 1, 0, 786430, 1, 0, 917502, 1, 0, 983038, 1, 0, 1048574, 1, 0, 1114110, 1, 0, 1179646, 1, 0, 327679, 1, 0, 458751, 1, 0, 524287, 1, 0, 589823, 1, 0, 655359, 1, 0, 720895, 1, 0, 786431, 1, 0, 851967, 1, 0, 917503, 1, 0, 983039, 1, 0, 1048575, 1, 0, 1114111, 1, 0, 1179647, 1, 0, 1245183, 1, 0, 1310719, 1, 0, 393216, 1, 0, 458752, 1, 0, 524288, 1, 0, 589824, 1, 0, 655360, 1, 0, 720896, 1, 0, 786432, 1, 0, 851968, 1, 0, 917504, 1, 0, 983040, 1, 0, 1048576, 1, 0, 1114112, 1, 0, 1179648, 1, 0, 1245184, 1, 0, 1310720, 1, 0, 1376256, 1, 0, 393217, 1, 0, 458753, 1, 0, 655361, 1, 0, 720897, 1, 0, 786433, 1, 0, 851969, 1, 0, 917505, 1, 0, 983041, 1, 0, 1048577, 1, 0, 1114113, 1, 0, 1179649, 1, 0, 1245185, 1, 0, 1310721, 1, 0, 1376257, 1, 0, 393218, 1, 0, 458754, 1, 0, 917506, 1, 0, 1048578, 1, 0, 1114114, 1, 0, 1179650, 1, 0, 1245186, 1, 0, 1310722, 1, 0, 393219, 1, 0, 1114115, 1, 0, 1179651, 1, 0, 1245187, 1, 0, 1114116, 1, 0, 1179652, 1, 0, 1245188, 1, 0, 1310724, 1, 0, 1376260, 1, 0, -3, 1, 0, 65533, 1, 0, 131069, 1, 0, 65534, 1, 0, 196607, 1, 0, 196606, 1, 0, 1441793, 1, 0, 1507328, 1, 0, 1441792, 1, 0, 1179653, 1, 0, 1114117, 1, 0, 1179654, 1, 0, 1114118, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1245192, 1, 0, 1310728, 1, 0, 1376263, 1, 0, 1441799, 1, 0, 1376262, 1, 0, 1441798, 1, 0, 1376261, 1, 0, 1310725, 1, 0, 1310726, 1, 0, 1310727, 1, 0, 1245190, 1, 0, 1245189, 1, 0, 1245191, 1, 0)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_4oiqj")]
+position = Vector2(-17, 71)
