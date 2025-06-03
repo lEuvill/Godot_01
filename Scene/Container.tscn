@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfgh85e4if3"]
+
+[ext_resource type="Script" path="res://Scripts/supply.gd" id="1_0n7mr"]
+[ext_resource type="Texture2D" uid="uid://bo50gvrpdj3j" path="res://Art/grass.png" id="1_p5bhg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43l46"]
+radius = 6.47437
+
+[node name="container" type="Area2D"]
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("1_0n7mr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+z_as_relative = false
+position = Vector2(0.1, -0.299999)
+scale = Vector2(1.11139, 0.56467)
+shape = SubResource("CircleShape2D_43l46")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_as_relative = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+z_as_relative = false
+position = Vector2(0, -4)
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("1_p5bhg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(0, -2)
+scale = Vector2(1.63797, 1.74641)
+polygon = PackedVector2Array(-8, 2, 0, 6, 7.9, 1.3, -0.1, -2.7)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

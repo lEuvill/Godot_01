@@ -5,7 +5,7 @@ extends Camera2D
 @export var drag_speed : float = 1.0
 @export var zoom_speed : float = 0.1
 @export var min_zoom : float = 0.5
-@export var max_zoom : float = 2.0
+@export var max_zoom : float = 6.0
 
 var dragging : bool = false
 var drag_button : int = 0
@@ -31,8 +31,8 @@ func _process(delta):
 		direction.y = 1
 
 	# Edge scrolling
-	if direction != Vector2.ZERO:
-		position += direction.normalized() * scroll_speed * delta
+	#if direction != Vector2.ZERO:
+	#	position += direction.normalized() * scroll_speed * delta
 
 	# Dragging
 	if dragging:
