@@ -1,0 +1,31 @@
+(hide own code before checkout) git stash -u
+(download code) git fetch --all
+(show downloaded code) git pull origin name_of_branch
+(create new branch) git checkout -b name_of_new_branch
+(switch to existing) git checkout name_of_branch
+(show hidden code) git stash pop
+(add new code for commit) git add .
+(commit) git commit -m "message"
+(upload code to branch) git push origin name_of_branch
+
+
+Pag kukuha ng code
+
+git stash -u
+git fetch --all
+git checkout name_of_branch / git checkout -b name_of_new_branch
+git pull origin name_of_branch
+git stash pop
+
+Pag mag uupload
+
+git stash -u
+git checkout name_of_branch / git checkout -b name_of_new_branch
+git stash pop
+git add .
+git commit -m "message"
+git push origin name_of_branch
+alpha/menu
+alpha/main-menu
+"(Feature) Added Buttons for menu"
+"(Bug Fix) Glitch on player"
