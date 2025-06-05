@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bps8f4vic4xbu"]
+[gd_scene load_steps=28 format=3 uid="uid://dxt361xiep2b7"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_i3goh"]
 [ext_resource type="Texture2D" uid="uid://781bqv6dmhbi" path="res://Art/Anim_ISO_Robo-wheelst_60x60_SE-Sheet-export.png" id="2_o4lg2"]
