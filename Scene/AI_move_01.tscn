@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt31k8nrp6x63"]
+
+[ext_resource type="Script" path="res://Scripts/ai_move_01.gd" id="1_k6886"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D"]
+script = ExtResource("1_k6886")
