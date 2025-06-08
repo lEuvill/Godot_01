@@ -8,10 +8,11 @@ func _ready() -> void:
 	shop_ui.visible = false
 	
 	
+	
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "p1":
-		var rice_data = game_manager.get_item("Rice")
+		var rice_data = Game_Manager.get_item("Rice")
 		print(rice_data["count"])  # prints 10
 		print(rice_data["price"])  # prints 100 (if quality is High)
 

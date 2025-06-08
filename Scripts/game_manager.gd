@@ -5,7 +5,7 @@ class_name GameManager
 
 # Dictionary to store inventory
 var inventory := {}
-
+var entity := {}
 # Called when the game starts
 func _ready():
 	# Example item: Rice

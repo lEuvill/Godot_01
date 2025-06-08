@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
-GlobalInventory="*res://Scene/global_inventory.tscn"
+Game_Manager="*res://Scene/Game_Manager.tscn"
 
 [display]
 

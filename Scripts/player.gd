@@ -1,7 +1,7 @@
 # Player.gd
 extends CharacterBody2D
 
-@export var speed := 20
+@export var speed := 70
 
 @onready var animated_sprite = $AnimatedSprite2D
 

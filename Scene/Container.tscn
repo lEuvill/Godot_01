@@ -36,8 +36,15 @@ scale = Vector2(0.142352, 0.186675)
 theme_override_fonts/font = ExtResource("3_gwrj5")
 text = "SHOP"
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+visible = false
+radius = 5.0
+vertices = PackedVector2Array(-9, 0, -4, 5, 4, 5, 9, 0, 0, -5)
+affect_navigation_mesh = true
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 z_as_relative = false
+scale = Vector2(1.4129, 1.4129)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 z_as_relative = false
@@ -49,11 +56,6 @@ texture = ExtResource("1_p5bhg")
 position = Vector2(0, -2)
 scale = Vector2(1.22162, 1.3698)
 polygon = PackedVector2Array(-7.36725, 2.92013, -3.06564, 4.45434, 2.8717, 4.55212, 6.77038, 3.05054, 7.50989, 1.38737, -0.1, -2.7, -7.67632, 1.46074)
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 5.0
-vertices = PackedVector2Array(-9, 0, -4, 5, 4, 5, 9, 0, 0, -5)
-affect_navigation_mesh = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
