@@ -28,7 +28,7 @@ texture_region_size = Vector2i(24, 12)
 tile_shape = 1
 tile_size = Vector2i(24, 12)
 custom_data_layer_0/name = "Shop"
-custom_data_layer_0/type = 4
+custom_data_layer_0/type = 0
 sources/0 = SubResource("TileSetScenesCollectionSource_a87qu")
 sources/1 = SubResource("TileSetAtlasSource_dv4xt")
 
@@ -49,7 +49,7 @@ position = Vector2(-30.3325, 76.8817)
 [node name="Customer2" parent="." instance=ExtResource("3_tnr7s")]
 position = Vector2(4, 66.5)
 script = ExtResource("4_bdpr2")
-speed = 120.0
+speed = null
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 y_sort_enabled = true

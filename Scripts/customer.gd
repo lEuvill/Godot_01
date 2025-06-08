@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var agent = $NavigationAgent2D
 @onready var player: CharacterBody2D = $"../p1"
-@onready var tile_map: TileMap = $"../NavigationRegion2D/TileMap"
+@onready var tile_map: TileMapLayer = $"../NavigationRegion2D/TileMapLayer"
 
 var is_moving_to_target := false
 
@@ -17,8 +17,8 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_action_pressed("space"):
 			#p_2.move_to_position(player.global_position)
-			for x in tile_map.get_used_cells(0):
-				var data = tile_map.get_cell_tile_data(0, x)
+			for x in tile_map.get_used_cells():
+				var data = tile_map.get_cell_tile_data(x)
 				print(data)
 				if data and data.get_custom_data("type") == "Shop":
 					var target_global_pos = tile_map.to_global(tile_map.map_to_local(x))
