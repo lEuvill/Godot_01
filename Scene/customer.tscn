@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bla0gwccdkupw"]
+[gd_scene load_steps=2 format=3 uid="uid://ch3ctyrx6h01c"]
 
-[ext_resource type="PackedScene" uid="uid://dxt361xiep2b7" path="res://Scene/Player.tscn" id="1_pmfsk"]
+[ext_resource type="PackedScene" uid="uid://dflh2rpvr4o7m" path="res://Scene/Player.tscn" id="1_pmfsk"]
 
 [node name="Customer" instance=ExtResource("1_pmfsk")]
 scale = Vector2(1.09342, 1.07407)

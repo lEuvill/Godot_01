@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://cyv7uk3t1lyns"]
 
 [ext_resource type="PackedScene" uid="uid://cfceutqy0ypha" path="res://Scene/main_camera.tscn" id="1_duykp"]
-[ext_resource type="PackedScene" uid="uid://dxt361xiep2b7" path="res://Scene/Player.tscn" id="3_4oiqj"]
-[ext_resource type="PackedScene" uid="uid://boy3rm6plungx" path="res://Scene/Container.tscn" id="3_5ln3r"]
-[ext_resource type="PackedScene" uid="uid://bla0gwccdkupw" path="res://Scene/customer.tscn" id="3_tnr7s"]
+[ext_resource type="PackedScene" uid="uid://dflh2rpvr4o7m" path="res://Scene/Player.tscn" id="3_4oiqj"]
+[ext_resource type="PackedScene" uid="uid://tlo2ktik8rt2" path="res://Scene/Container.tscn" id="3_5ln3r"]
+[ext_resource type="PackedScene" uid="uid://ch3ctyrx6h01c" path="res://Scene/customer.tscn" id="3_tnr7s"]
 [ext_resource type="Script" path="res://Scripts/customer.gd" id="4_bdpr2"]
 [ext_resource type="Texture2D" uid="uid://jfcihbtgivk6" path="res://Robot-port.png" id="5_unvxd"]
 [ext_resource type="Texture2D" uid="uid://bo50gvrpdj3j" path="res://Art/grass.png" id="6_jkxem"]
@@ -39,11 +39,11 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" parent="." instance=ExtResource("1_duykp")]
 position = Vector2(40.5, 62.5)
+scale = Vector2(4.65247, 3.76376)
 ignore_rotation = false
-zoom = Vector2(5, 5)
 max_zoom = 8.0
 
-[node name="p1" parent="." instance=ExtResource("3_4oiqj")]
+[node name="Neil" parent="." instance=ExtResource("3_4oiqj")]
 position = Vector2(-30.3325, 76.8817)
 
 [node name="Customer2" parent="." instance=ExtResource("3_tnr7s")]
@@ -58,7 +58,8 @@ scale = Vector2(1.65339, 1.43429)
 navigation_polygon = SubResource("NavigationPolygon_uraim")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
-position = Vector2(48.688, 31.3744)
+y_sort_enabled = true
+position = Vector2(48.688, 31.0258)
 scale = Vector2(0.604819, 0.69721)
 tile_map_data = PackedByteArray(0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 0)
 tile_set = SubResource("TileSet_db564")
