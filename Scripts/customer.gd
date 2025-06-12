@@ -3,27 +3,42 @@ extends CharacterBody2D
 @onready var p_2: CharacterBody2D = $"."
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var agent = $NavigationAgent2D
-@onready var player: CharacterBody2D = $"../p1"
+@onready var player: CharacterBody2D = $"../Neil"
 @onready var tile_map: TileMapLayer = $"../NavigationRegion2D/TileMapLayer"
 
 var is_moving_to_target := false
-
+var matching_positions
 
 func _ready():
-	# The NavigationAgent2D automatically uses the parent node's navigation map
-	# No need to manually set it in Godot 4
-	pass
+	var tile_id_to_find = 2
+	matching_positions = get_tiles_with_id(tile_id_to_find)
+	
+	for global_pos in matching_positions:
+		print("Found tile with ID 2 at: ", global_pos)
+
+func get_tiles_with_id(tile_id: int) -> Array:
+	var result = []
+	var used_cells = tile_map.get_used_cells()
+	print("Used cells:", used_cells)
+	print("Currently in Get tiles func")
+
+	for cell in used_cells:
+		var id = tile_map.get_cell_alternative_tile(cell)
+		print("ID:", id)
+		if id == tile_id:
+			var local_pos = tile_map.map_to_local(cell)
+			var global_pos = tile_map.to_global(local_pos)
+			result.append(global_pos)
+
+	print(result)
+	return result
+
 
 func _physics_process(delta):
 	if Input.is_action_pressed("space"):
-			#p_2.move_to_position(player.global_position)
-			for x in tile_map.get_used_cells():
-				var data = tile_map.get_cell_tile_data(x)
-				print(data)
-				if data and data.get_custom_data("type") == "Shop":
-					var target_global_pos = tile_map.to_global(tile_map.map_to_local(x))
-					p_2.move_to_position(target_global_pos)
-					break
+			print(matching_positions[0])
+			p_2.move_to_position(matching_positions[0])
+			pass
 	if is_moving_to_target:
 		# Follow the path from the agent
 		# NavigationAgent2D automatically tracks the parent's position in Godot 4

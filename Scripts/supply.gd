@@ -24,6 +24,13 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name != "CharacterBody2D":
 		shop_ui.visible = true
 		print("body entered ",str(shop_ui))
+		
+		#process ORDER
+		#-check desire
+		#-check money
+		
+		
+		
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "p1":

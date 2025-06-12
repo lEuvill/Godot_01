@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyv7uk3t1lyns"]
+
+[ext_resource type="PackedScene" uid="uid://cfceutqy0ypha" path="res://Scene/main_camera.tscn" id="1_duykp"]
+[ext_resource type="PackedScene" uid="uid://dflh2rpvr4o7m" path="res://Scene/Player.tscn" id="3_4oiqj"]
+[ext_resource type="PackedScene" uid="uid://tlo2ktik8rt2" path="res://Scene/Container.tscn" id="3_5ln3r"]
+[ext_resource type="PackedScene" uid="uid://ch3ctyrx6h01c" path="res://Scene/customer.tscn" id="3_tnr7s"]
+[ext_resource type="PackedScene" uid="uid://dou10ck2se6b2" path="res://cashier_container.tscn" id="5_g2doe"]
+[ext_resource type="Texture2D" uid="uid://jfcihbtgivk6" path="res://Robot-port.png" id="5_unvxd"]
+[ext_resource type="Texture2D" uid="uid://bo50gvrpdj3j" path="res://Art/grass.png" id="6_jkxem"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uraim"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(-0.5, 46.5, -38.5, 68.5, 70, 142, 180, 65, 72.5, 8)])
+parsed_geometry_type = 0
+agent_radius = 4.0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a87qu"]
+scenes/1/scene = ExtResource("3_5ln3r")
+scenes/2/scene = ExtResource("5_g2doe")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dv4xt"]
+texture = ExtResource("6_jkxem")
+texture_region_size = Vector2i(24, 12)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_db564"]
+tile_shape = 1
+tile_size = Vector2i(24, 12)
+custom_data_layer_0/name = "Shop"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetScenesCollectionSource_a87qu")
+sources/1 = SubResource("TileSetAtlasSource_dv4xt")
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(712, 484)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" parent="." instance=ExtResource("1_duykp")]
+position = Vector2(40.5, 62.5)
+scale = Vector2(4.65247, 3.76376)
+ignore_rotation = false
+max_zoom = 8.0
+
+[node name="Neil" parent="." instance=ExtResource("3_4oiqj")]
+position = Vector2(112, 31.5)
+
+[node name="Customer2" parent="." instance=ExtResource("3_tnr7s")]
+position = Vector2(1.5, 68)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-79, -45)
+scale = Vector2(1.65339, 1.43429)
+navigation_polygon = SubResource("NavigationPolygon_uraim")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+y_sort_enabled = true
+position = Vector2(48.688, 31.0258)
+scale = Vector2(0.604819, 0.69721)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 6, 0, 0, 0, 0, 0, 0, 0, 2, 0)
+tile_set = SubResource("TileSet_db564")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Robot-port" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(33.5, 89.5)
+scale = Vector2(0.529305, 0.529305)
+texture = ExtResource("5_unvxd")
+
+[connection signal="area_entered" from="NavigationRegion2D/TileMapLayer/container" to="NavigationRegion2D/TileMapLayer/container" method="_on_area_entered"]
+[connection signal="body_entered" from="NavigationRegion2D/TileMapLayer/container" to="NavigationRegion2D/TileMapLayer/container" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/TileMapLayer/container" to="NavigationRegion2D/TileMapLayer/container" method="_on_body_exited"]
+[connection signal="area_entered" from="NavigationRegion2D/TileMapLayer/@Area2D@30750" to="NavigationRegion2D/TileMapLayer/@Area2D@30750" method="_on_area_entered"]
+[connection signal="body_entered" from="NavigationRegion2D/TileMapLayer/@Area2D@30750" to="NavigationRegion2D/TileMapLayer/@Area2D@30750" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/TileMapLayer/@Area2D@30750" to="NavigationRegion2D/TileMapLayer/@Area2D@30750" method="_on_body_exited"]

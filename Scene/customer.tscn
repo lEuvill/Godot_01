@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch3ctyrx6h01c"]
+[gd_scene load_steps=3 format=3 uid="uid://ch3ctyrx6h01c"]
 
 [ext_resource type="PackedScene" uid="uid://dflh2rpvr4o7m" path="res://Scene/Player.tscn" id="1_pmfsk"]
+[ext_resource type="Script" path="res://Scripts/customer.gd" id="2_3nfme"]
 
 [node name="Customer" instance=ExtResource("1_pmfsk")]
 scale = Vector2(1.09342, 1.07407)
+script = ExtResource("2_3nfme")
+speed = 120.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 modulate = Color(0, 0.710667, 0.801715, 1)
