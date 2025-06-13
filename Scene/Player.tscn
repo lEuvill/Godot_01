@@ -215,7 +215,6 @@ path_max_distance = 120.0
 path_postprocessing = 1
 simplify_epsilon = 10.0
 radius = 1000.0
-debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.96046e-08, -1)

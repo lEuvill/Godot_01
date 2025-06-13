@@ -12,33 +12,14 @@ var matching_positions
 
 func _ready():
 	var tile_id_to_find = 2
-	matching_positions = get_tiles_with_id(tile_id_to_find)
 	
-	for global_pos in matching_positions:
-		print("Found tile with ID 2 at: ", global_pos)
 
-func get_tiles_with_id(tile_id: int) -> Array:
-	var result = []
-	var used_cells = tile_map.get_used_cells()
-	print("Used cells:", used_cells)
-	print("Currently in Get tiles func")
 
-	for cell in used_cells:
-		var id = tile_map.get_cell_alternative_tile(cell)
-		print("ID:", id)
-		if id == tile_id:
-			var local_pos = tile_map.map_to_local(cell)
-			var global_pos = tile_map.to_global(local_pos)
-			result.append(global_pos)
-
-	print(result)
-	return result
 
 
 func _physics_process(delta):
 	if Input.is_action_pressed("space"):
-			print(matching_positions[0])
-			p_2.move_to_position(matching_positions[0])
+			
 			pass
 	if is_moving_to_target:
 		# Follow the path from the agent

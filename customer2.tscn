@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg74yevfjj0wn"]
+
+[ext_resource type="PackedScene" uid="uid://ch3ctyrx6h01c" path="res://Scene/customer.tscn" id="1_2ursq"]
+[ext_resource type="Script" path="res://customer_2.gd" id="2_4orsr"]
+
+[node name="Customer2" groups=["bot"] instance=ExtResource("1_2ursq")]
+safe_margin = 10.0
+script = ExtResource("2_4orsr")
+speed = 80
+
+[node name="NavigationAgent2D" parent="." index="1"]
+path_max_distance = 1000.0
+path_postprocessing = 0
+avoidance_enabled = true
+radius = 32.39
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

@@ -1,21 +1,25 @@
 extends CharacterBody2D
-@export var speed := 120.0  # speed for both input & pathfinding
+
+@onready var tile_map: TileMapLayer = $"../../TileMapLayer"
+
+@export var speed := 80  # speed for both input & pathfinding
 @onready var p_2: CharacterBody2D = $"."
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var agent = $NavigationAgent2D
-@onready var player: CharacterBody2D = $"../Neil"
-@onready var tile_map: TileMapLayer = $"../TileMapLayer"
-
 
 var is_moving_to_target := false
 var matching_positions
+var blocked_by_object := false
 
-func _ready():
-	var tile_id_to_find = 2
+func _ready(): 
+	var tile_id_to_find = 3
 	matching_positions = get_tiles_with_id(tile_id_to_find)
-	
-	for global_pos in matching_positions:
-		print("Found tile with ID 2 at: ", global_pos)
+
+	if matching_positions.is_empty():
+		push_error("No matching tiles found!")
+		return
+
+	move_to_position(matching_positions[0])
 
 func get_tiles_with_id(tile_id: int) -> Array:
 	var result = []
@@ -36,30 +40,24 @@ func get_tiles_with_id(tile_id: int) -> Array:
 
 
 func _physics_process(delta):
+	move_to_position(matching_positions[0])
 	if Input.is_action_pressed("space"):
-			print(matching_positions[0])
-			p_2.move_to_position(matching_positions[0])
-			pass
+		print(matching_positions[0])
+		move_to_position(matching_positions[0])
+
 	if is_moving_to_target:
-		# Follow the path from the agent
-		# NavigationAgent2D automatically tracks the parent's position in Godot 4
 		if agent.is_navigation_finished():
 			is_moving_to_target = false
 			velocity = Vector2.ZERO
 			animated_sprite.stop()
 			return
-		
+
 		var next_point = agent.get_next_path_position()
 		var direction = (next_point - global_position).normalized()
-		velocity = direction * speed
-		
-		# Move the player (CharacterBody2D)
+		var new_velocity = direction * speed
+		_on_navigation_agent_2d_velocity_computed(new_velocity)
 		move_and_slide()
-		
-		# Play animation based on direction
 		play_animation(direction)
-		
-		# The NavigationAgent2D automatically advances when close enoug
 	else:
 		velocity = Vector2.ZERO
 		animated_sprite.stop()
@@ -83,3 +81,8 @@ func play_animation(direction: Vector2):
 func move_to_position(target_pos: Vector2):
 	agent.set_target_position(target_pos)
 	is_moving_to_target = true
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+	pass # Replace with function body.
