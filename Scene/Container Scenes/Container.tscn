@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://tlo2ktik8rt2"]
+
+[ext_resource type="Script" path="res://Scripts/supply.gd" id="1_u5exk"]
+[ext_resource type="FontFile" uid="uid://bh6gg52e2o4l0" path="res://Font/Minecraft.ttf" id="2_lr4x8"]
+[ext_resource type="Texture2D" uid="uid://bo50gvrpdj3j" path="res://Art/Others/grass.png" id="3_bst3u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43l46"]
+radius = 4.43706
+
+[node name="container" type="Area2D"]
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("1_u5exk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+z_as_relative = false
+position = Vector2(0.1, -0.299999)
+scale = Vector2(2.91014, 1.53904)
+shape = SubResource("CircleShape2D_43l46")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 2
+y_sort_enabled = true
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = -10.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 20.0
+scale = Vector2(0.142352, 0.186675)
+theme_override_fonts/font = ExtResource("2_lr4x8")
+text = "SHOP"
+
+[node name="MenuButton" type="MenuButton" parent="Panel"]
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 38.0
+scale = Vector2(0.203463, 0.202714)
+theme_override_fonts/font = ExtResource("2_lr4x8")
+text = "BUY"
+
+[node name="MenuButton2" type="MenuButton" parent="Panel"]
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 70.0
+offset_bottom = 44.0
+scale = Vector2(0.203463, 0.202714)
+theme_override_fonts/font = ExtResource("2_lr4x8")
+text = "CANCEL"
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 16.0
+offset_top = -40.0
+offset_right = 56.0
+
+[node name="RICE" type="Button" parent="Panel2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 63.0
+offset_bottom = 31.0
+scale = Vector2(0.244242, 0.244242)
+theme_override_fonts/font = ExtResource("2_lr4x8")
+text = "RICE"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_as_relative = false
+scale = Vector2(1.4129, 1.4129)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+z_as_relative = false
+position = Vector2(0, -4)
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("3_bst3u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(0, -2)
+scale = Vector2(1.22162, 1.3698)
+polygon = PackedVector2Array(-7.36725, 2.92013, -3.06564, 4.45434, 2.8717, 4.55212, 6.77038, 3.05054, 7.50989, 1.38737, -0.1, -2.7, -7.67632, 1.46074)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

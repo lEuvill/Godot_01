@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbwu02hnj2qub"]
+
+[ext_resource type="Script" path="res://Scripts/EndPoint.gd" id="1_i3wow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7joct"]
+radius = 19.8354
+
+[node name="EndPoint" type="Area2D" groups=["door"]]
+script = ExtResource("1_i3wow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.01292, 0.495869)
+shape = SubResource("CircleShape2D_7joct")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

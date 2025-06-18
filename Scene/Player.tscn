@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://dflh2rpvr4o7m"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_te4nw"]
-[ext_resource type="Texture2D" uid="uid://781bqv6dmhbi" path="res://Art/Anim_ISO_Robo-wheelst_60x60_SE-Sheet-export.png" id="2_o4lg2"]
+[ext_resource type="Texture2D" uid="uid://781bqv6dmhbi" path="res://Art/Red Robot/Anim_ISO_Robo-wheelst_60x60_SE-Sheet-export.png" id="2_o4lg2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gffe3"]
 atlas = ExtResource("2_o4lg2")

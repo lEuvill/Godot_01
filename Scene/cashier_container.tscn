@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dou10ck2se6b2"]
+
+[ext_resource type="PackedScene" uid="uid://tlo2ktik8rt2" path="res://Scene/Container Scenes/Container.tscn" id="1_cst1f"]
+
+[node name="container" instance=ExtResource("1_cst1f")]
+
+[node name="CollisionShape2D2" parent="." index="0" groups=["door"]]
+
+[node name="Panel" parent="." index="1"]
+visible = false
+
+[node name="Panel2" parent="." index="2"]
+visible = false
+
+[node name="Sprite2D" parent="CharacterBody2D" index="0"]
+modulate = Color(1, 0.333333, 1, 1)

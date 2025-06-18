@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://257j3a51aifg"]
+
+[ext_resource type="PackedScene" uid="uid://ch3ctyrx6h01c" path="res://Scene/customer.tscn" id="1_2ursq"]
+[ext_resource type="Script" path="res://Scripts/customer_2.gd" id="2_4orsr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xanqy"]
+radius = 22.883
+
+[node name="Customer2" groups=["bot"] instance=ExtResource("1_2ursq")]
+safe_margin = 10.0
+script = ExtResource("2_4orsr")
+speed = 80
+
+[node name="NavigationAgent2D" parent="." index="1"]
+path_max_distance = 1000.0
+radius = 32.39
+debug_enabled = true
+
+[node name="Area2D" type="Area2D" parent="." index="3"]
+scale = Vector2(1.00926, 1.0111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -2.79311)
+scale = Vector2(1.72563, 0.981237)
+shape = SubResource("CircleShape2D_xanqy")
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
