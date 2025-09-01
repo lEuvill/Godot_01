@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://biwahbleaxiok"]
+
+[ext_resource type="FontFile" uid="uid://bh6gg52e2o4l0" path="res://Font/Minecraft.ttf" id="1_xw1p1"]
+
+[node name="Shop_UI" type="CanvasLayer"]
+layer = 3
+
+[node name="Panel" type="Panel" parent="."]
+y_sort_enabled = true
+offset_left = -7.0
+offset_top = -29.0
+offset_right = 33.0
+offset_bottom = 11.0
+scale = Vector2(0.328003, 0.452613)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 12.195
+offset_top = 2.20939
+offset_right = 57.195
+offset_bottom = 25.2094
+scale = Vector2(0.33018, 0.24061)
+theme_override_fonts/font = ExtResource("1_xw1p1")
+text = "SHOP"
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.419608)

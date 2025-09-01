@@ -10,12 +10,18 @@ func _physics_process(delta):
 
 	# Read normal input
 	if Input.is_action_pressed("ui_right"):
+		#animated_sprite.flip_h = false
+		animated_sprite.play("right")
 		input_vector.x += 1
 	if Input.is_action_pressed("ui_left"):
+		#animated_sprite.flip_h = true
+		animated_sprite.play("left")
 		input_vector.x -= 1
 	if Input.is_action_pressed("ui_down"):
+		animated_sprite.play("down")
 		input_vector.y += 1
 	if Input.is_action_pressed("ui_up"):
+		animated_sprite.play("up")
 		input_vector.y -= 1
 
 	input_vector = input_vector.normalized()
@@ -29,19 +35,4 @@ func _physics_process(delta):
 	move_and_slide()
 	# -----------------------------------------
 
-	# Animation control
-	if input_vector != Vector2.ZERO:
-		play_movement_animation(input_vector)
-	else:
-		animated_sprite.stop()
-
-func play_movement_animation(direction: Vector2):
-	# Direction based on normal input
-	if direction.x > 0 and direction.y > 0:
-		animated_sprite.play("SE") # Southeast
-	elif direction.x > 0 and direction.y < 0:
-		animated_sprite.play("NE") # Northeast
-	elif direction.x < 0 and direction.y > 0:
-		animated_sprite.play("SW") # Southwest
-	elif direction.x < 0 and direction.y < 0:
-		animated_sprite.play("NW") # Northwest
+	
